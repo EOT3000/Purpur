@@ -5,7 +5,7 @@ Subject: [PATCH] Fire Immunity API
 
 
 diff --git a/src/main/java/net/minecraft/world/entity/Entity.java b/src/main/java/net/minecraft/world/entity/Entity.java
-index 42ff02305e9eedb0a7c4a3b25106eb98776696a4..74e12d2f451f7ac482994bac4daa6841716e5a7c 100644
+index d261ac556c737be50e4ac214df10d7e711bea9b2..49ddbb2212d7c591cb21c253e0a4554b5e65ebad 100644
 --- a/src/main/java/net/minecraft/world/entity/Entity.java
 +++ b/src/main/java/net/minecraft/world/entity/Entity.java
 @@ -431,6 +431,7 @@ public abstract class Entity implements SyncedDataHolder, Nameable, EntityAccess

@@ -5,7 +5,7 @@ Subject: [PATCH] Add death screen API
 
 
 diff --git a/src/main/java/org/bukkit/craftbukkit/entity/CraftPlayer.java b/src/main/java/org/bukkit/craftbukkit/entity/CraftPlayer.java
-index afd7a48f6c85aa00fe53f8ee6a53d790f81a6048..6a3b023b0f60dbb350943bdd7f0bfead9e8e3ce0 100644
+index dfc15b03996a1a82918c85f3ebea59d54177092a..b9130d040acff1e5cb7a475be93b03cdbe229683 100644
 --- a/src/main/java/org/bukkit/craftbukkit/entity/CraftPlayer.java
 +++ b/src/main/java/org/bukkit/craftbukkit/entity/CraftPlayer.java
 @@ -3641,5 +3641,11 @@ public class CraftPlayer extends CraftHumanEntity implements Player {

@@ -5,7 +5,7 @@ Subject: [PATCH] Config to remove explosion radius clamp
 
 
 diff --git a/src/main/java/net/minecraft/world/level/Explosion.java b/src/main/java/net/minecraft/world/level/Explosion.java
-index 4ce32603dcd691e018a3e1962311d2ac707439aa..d7cd063240a2799996cf7efa3f766ee748702db1 100644
+index 28eafd9b22b745a940b4465aae01cb738a2d7002..8dd513e3aa12bb5086d4eebe9a93c1f2ffb0b9eb 100644
 --- a/src/main/java/net/minecraft/world/level/Explosion.java
 +++ b/src/main/java/net/minecraft/world/level/Explosion.java
 @@ -340,7 +340,7 @@ public class Explosion {

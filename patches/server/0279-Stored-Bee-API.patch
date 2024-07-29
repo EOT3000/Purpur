@@ -5,7 +5,7 @@ Subject: [PATCH] Stored Bee API
 
 
 diff --git a/src/main/java/net/minecraft/world/level/block/entity/BeehiveBlockEntity.java b/src/main/java/net/minecraft/world/level/block/entity/BeehiveBlockEntity.java
-index d8efb00c325448d566c59418fe22268c6eb4cfce..f7a6ab35c95ffda73f17843916ddb624ad290b42 100644
+index 5e982bab268746a05b97f5b9f71422548ea12983..a9cff34c85e1907bcbca2b051289781484580a15 100644
 --- a/src/main/java/net/minecraft/world/level/block/entity/BeehiveBlockEntity.java
 +++ b/src/main/java/net/minecraft/world/level/block/entity/BeehiveBlockEntity.java
 @@ -146,11 +146,33 @@ public class BeehiveBlockEntity extends BlockEntity {

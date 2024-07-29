@@ -5,7 +5,7 @@ Subject: [PATCH] Rebrand
 
 
 diff --git a/build.gradle.kts b/build.gradle.kts
-index 1a734293c9416f13324bb0edf8f950c9029f8bc4..42fa7df2badca3fe26258ce0db934ba33f9cec80 100644
+index 421f6b3dc8890d63d2e7aa774d0bf8f7e15890ab..409a46eb82262b00a626683072f2734255f2c2b8 100644
 --- a/build.gradle.kts
 +++ b/build.gradle.kts
 @@ -13,7 +13,7 @@ configurations.named(log4jPlugins.compileClasspathConfigurationName) {
@@ -28,7 +28,7 @@ index 1a734293c9416f13324bb0edf8f950c9029f8bc4..42fa7df2badca3fe26258ce0db934ba3
      testImplementation("io.github.classgraph:classgraph:4.8.47") // Paper - mob goal test
      testImplementation("org.junit.jupiter:junit-jupiter:5.10.2")
      testImplementation("org.hamcrest:hamcrest:2.2")
-@@ -80,14 +84,14 @@ tasks.jar {
+@@ -84,14 +88,14 @@ tasks.jar {
          val gitBranch = git("rev-parse", "--abbrev-ref", "HEAD").getText().trim() // Paper
          attributes(
              "Main-Class" to "org.bukkit.craftbukkit.Main",
@@ -48,7 +48,7 @@ index 1a734293c9416f13324bb0edf8f950c9029f8bc4..42fa7df2badca3fe26258ce0db934ba3
              "Build-Number" to (build ?: ""),
              "Build-Time" to Instant.now().toString(),
              "Git-Branch" to gitBranch, // Paper
-@@ -144,7 +148,7 @@ fun TaskContainer.registerRunTask(
+@@ -148,7 +152,7 @@ fun TaskContainer.registerRunTask(
      name: String,
      block: JavaExec.() -> Unit
  ): TaskProvider<JavaExec> = register<JavaExec>(name) {
@@ -213,6 +213,19 @@ index b24265573fdef5d9a964bcd76146f34542c420cf..710477ae27ebc5afdf0012ef0867d05e
      }
  
      public SystemReport getSystemReport() {
+diff --git a/src/main/java/net/minecraft/world/level/chunk/storage/RegionFileStorage.java b/src/main/java/net/minecraft/world/level/chunk/storage/RegionFileStorage.java
+index 40689256711cc94a806ca1da346f4f62eda31526..4c178b234bc1118a577d0e016f4b986e9197e99d 100644
+--- a/src/main/java/net/minecraft/world/level/chunk/storage/RegionFileStorage.java
++++ b/src/main/java/net/minecraft/world/level/chunk/storage/RegionFileStorage.java
+@@ -177,7 +177,7 @@ public class RegionFileStorage implements AutoCloseable, ca.spottedleaf.moonrise
+ 
+     // Paper start
+     private static void printOversizedLog(String msg, Path file, int x, int z) {
+-        org.apache.logging.log4j.LogManager.getLogger().fatal(msg + " (" + file.toString().replaceAll(".+[\\\\/]", "") + " - " + x + "," + z + ") Go clean it up to remove this message. /minecraft:tp " + (x<<4)+" 128 "+(z<<4) + " - DO NOT REPORT THIS TO PAPER - You may ask for help on Discord, but do not file an issue. These error messages can not be removed.");
++        org.apache.logging.log4j.LogManager.getLogger().fatal(msg + " (" + file.toString().replaceAll(".+[\\\\/]", "") + " - " + x + "," + z + ") Go clean it up to remove this message. /minecraft:tp " + (x<<4)+" 128 "+(z<<4) + " - DO NOT REPORT THIS TO PURPUR - You may ask for help on Discord, but do not file an issue. These error messages can not be removed."); // Purpur
+     }
+ 
+     private static CompoundTag readOversizedChunk(RegionFile regionfile, ChunkPos chunkCoordinate) throws IOException {
 diff --git a/src/main/java/org/bukkit/craftbukkit/command/CraftConsoleCommandSender.java b/src/main/java/org/bukkit/craftbukkit/command/CraftConsoleCommandSender.java
 index 4e56018b64d11f76c8da43fd8f85c6de72204e36..9607675e6c5bff2183c4420d11fc63eeb5747fb6 100644
 --- a/src/main/java/org/bukkit/craftbukkit/command/CraftConsoleCommandSender.java
@@ -241,10 +254,10 @@ index 4e56018b64d11f76c8da43fd8f85c6de72204e36..9607675e6c5bff2183c4420d11fc63ee
  
      @Override
 diff --git a/src/main/java/org/bukkit/craftbukkit/scheduler/CraftScheduler.java b/src/main/java/org/bukkit/craftbukkit/scheduler/CraftScheduler.java
-index e85b9bb3f9c225d289a4959921970b9963881199..c1e2d3a75b9d4710ab6d8b5c62af4bc136a2b668 100644
+index 2f4d6b56301195f8d39ed50dffe842464065bfe1..30ddb35140ae4a6faba98c191bb8eadbafc35377 100644
 --- a/src/main/java/org/bukkit/craftbukkit/scheduler/CraftScheduler.java
 +++ b/src/main/java/org/bukkit/craftbukkit/scheduler/CraftScheduler.java
-@@ -503,7 +503,7 @@ public class CraftScheduler implements BukkitScheduler {
+@@ -492,7 +492,7 @@ public class CraftScheduler implements BukkitScheduler {
                  this.parsePending();
              } else {
                  // this.debugTail = this.debugTail.setNext(new CraftAsyncDebugger(currentTick + CraftScheduler.RECENT_TICKS, task.getOwner(), task.getTaskClass())); // Paper
@@ -254,10 +267,10 @@ index e85b9bb3f9c225d289a4959921970b9963881199..c1e2d3a75b9d4710ab6d8b5c62af4bc1
                  // (async tasks must live with race-conditions if they attempt to cancel between these few lines of code)
              }
 diff --git a/src/main/java/org/bukkit/craftbukkit/util/CraftMagicNumbers.java b/src/main/java/org/bukkit/craftbukkit/util/CraftMagicNumbers.java
-index 3137391cadef7c67019561e65fedd0664e689eae..eb5ca67ebfd008a0fcc3ab3fc2452a27d7b0a9f8 100644
+index 41c34ffdf9d95a04ed55a1e09ebc78e8cf946777..4f25368d55496667f1dc2cb2879b6d783464292b 100644
 --- a/src/main/java/org/bukkit/craftbukkit/util/CraftMagicNumbers.java
 +++ b/src/main/java/org/bukkit/craftbukkit/util/CraftMagicNumbers.java
-@@ -498,7 +498,7 @@ public final class CraftMagicNumbers implements UnsafeValues {
+@@ -487,7 +487,7 @@ public final class CraftMagicNumbers implements UnsafeValues {
  
      @Override
      public com.destroystokyo.paper.util.VersionFetcher getVersionFetcher() {
@@ -280,10 +293,10 @@ index 774556a62eb240da42e84db4502e2ed43495be17..99597258e8e88cd9e2c901c4ac3ff7fa
  
          if (stream != null) {
 diff --git a/src/main/java/org/spigotmc/WatchdogThread.java b/src/main/java/org/spigotmc/WatchdogThread.java
-index 5e583d7226ce60d965ce9f019900793d45742d30..08230ef6a705904440a677fba4c65386a3f540ed 100644
+index f7a4fee9bb25ff256dc2e5ea26bfbceca6a49167..f51cc3de3ca935ef90f7f0e9dd0506b856fc55f3 100644
 --- a/src/main/java/org/spigotmc/WatchdogThread.java
 +++ b/src/main/java/org/spigotmc/WatchdogThread.java
-@@ -96,7 +96,7 @@ public class WatchdogThread extends io.papermc.paper.util.TickThread // Paper -
+@@ -96,7 +96,7 @@ public class WatchdogThread extends ca.spottedleaf.moonrise.common.util.TickThre
  
      private WatchdogThread(long timeoutTime, boolean restart)
      {
@@ -292,7 +305,7 @@ index 5e583d7226ce60d965ce9f019900793d45742d30..08230ef6a705904440a677fba4c65386
          this.timeoutTime = timeoutTime;
          this.restart = restart;
          earlyWarningEvery = Math.min(io.papermc.paper.configuration.GlobalConfiguration.get().watchdog.earlyWarningEvery, timeoutTime); // Paper
-@@ -155,14 +155,14 @@ public class WatchdogThread extends io.papermc.paper.util.TickThread // Paper -
+@@ -155,14 +155,14 @@ public class WatchdogThread extends ca.spottedleaf.moonrise.common.util.TickThre
                  if (isLongTimeout) {
                  // Paper end
                  log.log( Level.SEVERE, "------------------------------" );
@@ -310,7 +323,7 @@ index 5e583d7226ce60d965ce9f019900793d45742d30..08230ef6a705904440a677fba4c65386
                  //
                  if ( net.minecraft.world.level.Level.lastPhysicsProblem != null )
                  {
-@@ -184,12 +184,12 @@ public class WatchdogThread extends io.papermc.paper.util.TickThread // Paper -
+@@ -184,12 +184,12 @@ public class WatchdogThread extends ca.spottedleaf.moonrise.common.util.TickThre
                  // Paper end
                  } else
                  {
@@ -325,7 +338,7 @@ index 5e583d7226ce60d965ce9f019900793d45742d30..08230ef6a705904440a677fba4c65386
                  ca.spottedleaf.moonrise.patches.chunk_system.scheduling.ChunkTaskScheduler.dumpAllChunkLoadInfo(MinecraftServer.getServer(), isLongTimeout); // Paper - rewrite chunk system
                  this.dumpTickingInfo(); // Paper - log detailed tick information
                  WatchdogThread.dumpThread( ManagementFactory.getThreadMXBean().getThreadInfo( MinecraftServer.getServer().serverThread.getId(), Integer.MAX_VALUE ), log );
-@@ -205,7 +205,7 @@ public class WatchdogThread extends io.papermc.paper.util.TickThread // Paper -
+@@ -205,7 +205,7 @@ public class WatchdogThread extends ca.spottedleaf.moonrise.common.util.TickThre
                      WatchdogThread.dumpThread( thread, log );
                  }
                  } else {

@@ -30,7 +30,7 @@ index 8d8944a0455b3401d84cab636d61447e7d51ab19..0a7aa715674e5577e7f2327f6d0d253e
          return SoundEvents.ARROW_HIT;
      }
 diff --git a/src/main/java/net/minecraft/world/item/ProjectileWeaponItem.java b/src/main/java/net/minecraft/world/item/ProjectileWeaponItem.java
-index 7ae7626c82969ea5a6fc5aa4a0c7ec43cea73adb..ffbc56290eb8e36339e29f6084bb207366506c39 100644
+index 32dd0b13a0819f597d8a93c6bc3a155781067544..9751eea2d8aa3a45da34f09377d2fc81fe9a90d8 100644
 --- a/src/main/java/net/minecraft/world/item/ProjectileWeaponItem.java
 +++ b/src/main/java/net/minecraft/world/item/ProjectileWeaponItem.java
 @@ -110,6 +110,8 @@ public abstract class ProjectileWeaponItem extends Item {

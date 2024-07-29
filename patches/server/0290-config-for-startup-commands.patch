@@ -5,10 +5,10 @@ Subject: [PATCH] config for startup commands
 
 
 diff --git a/src/main/java/net/minecraft/server/MinecraftServer.java b/src/main/java/net/minecraft/server/MinecraftServer.java
-index 0852e14cbb194bd524147ec443eb2791e9ecf3a6..b8628e9ab434feaae40c65f0fa016f6d57352f38 100644
+index 8828083d92a0c3c0623dbf6771cef88854c8ec6f..d0c31849b67e19e9a14593b3907266a3759acb61 100644
 --- a/src/main/java/net/minecraft/server/MinecraftServer.java
 +++ b/src/main/java/net/minecraft/server/MinecraftServer.java
-@@ -1259,6 +1259,16 @@ public abstract class MinecraftServer extends ReentrantBlockableEventLoop<TickTa
+@@ -1263,6 +1263,16 @@ public abstract class MinecraftServer extends ReentrantBlockableEventLoop<TickTa
              }
              // Paper end - Add onboarding message for initial server start
  

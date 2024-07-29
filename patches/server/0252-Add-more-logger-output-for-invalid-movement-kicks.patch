@@ -5,7 +5,7 @@ Subject: [PATCH] Add more logger output for invalid movement kicks
 
 
 diff --git a/src/main/java/net/minecraft/server/network/ServerGamePacketListenerImpl.java b/src/main/java/net/minecraft/server/network/ServerGamePacketListenerImpl.java
-index 3f388240694709c198c7d16be56127101f5e6df3..1c41ad915ad5f1ef63fea96fefe53fd037174ac3 100644
+index efb72ae3ce609117258dfc9f09b53add4ef0fd8e..29d69101326017f68b10329f51dd6b93c1bf1d60 100644
 --- a/src/main/java/net/minecraft/server/network/ServerGamePacketListenerImpl.java
 +++ b/src/main/java/net/minecraft/server/network/ServerGamePacketListenerImpl.java
 @@ -721,6 +721,7 @@ public class ServerGamePacketListenerImpl extends ServerCommonPacketListenerImpl

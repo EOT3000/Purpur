@@ -1,0 +1,19 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: "flyinggesyers@gmail.com" <flyinggesyers@gmail.com>
+Date: Mon, 29 Jul 2024 12:41:38 -0400
+Subject: [PATCH] open entity types
+
+
+diff --git a/src/main/java/org/bukkit/entity/EntityType.java b/src/main/java/org/bukkit/entity/EntityType.java
+index 6905614c3d277a3a725554f02cc92d4b3430eecc..5ad871904f770d642c45b7d6392099685eb7b8e1 100644
+--- a/src/main/java/org/bukkit/entity/EntityType.java
++++ b/src/main/java/org/bukkit/entity/EntityType.java
+@@ -308,7 +308,7 @@ public enum EntityType implements Keyed, Translatable, net.kyori.adventure.trans
+     UNKNOWN(null, null, -1, false);
+ 
+     private final String name;
+-    private final Class<? extends Entity> clazz;
++    public Class<? extends Entity> clazz;
+     private final short typeId;
+     private final boolean independent, living;
+     private final NamespacedKey key;

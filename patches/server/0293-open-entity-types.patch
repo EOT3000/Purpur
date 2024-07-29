@@ -1,0 +1,32 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: "flyinggesyers@gmail.com" <flyinggesyers@gmail.com>
+Date: Mon, 29 Jul 2024 12:41:38 -0400
+Subject: [PATCH] open entity types
+
+
+diff --git a/src/main/java/net/minecraft/world/entity/EntityType.java b/src/main/java/net/minecraft/world/entity/EntityType.java
+index b4f4addfd35a1961a237fc0ab83e6285a0faeaee..ba5c2f23aad10eb1674534487b5479abfc31b75a 100644
+--- a/src/main/java/net/minecraft/world/entity/EntityType.java
++++ b/src/main/java/net/minecraft/world/entity/EntityType.java
+@@ -307,7 +307,7 @@ public class EntityType<T extends Entity> implements FeatureElement, EntityTypeT
+     public static final EntityType<ZombifiedPiglin> ZOMBIFIED_PIGLIN = EntityType.register("zombified_piglin", EntityType.Builder.of(ZombifiedPiglin::new, MobCategory.MONSTER).fireImmune().sized(0.6F, 1.95F).eyeHeight(1.79F).passengerAttachments(2.0F).ridingOffset(-0.7F).clientTrackingRange(8));
+     public static final EntityType<Player> PLAYER = EntityType.register("player", EntityType.Builder.createNothing(MobCategory.MISC).noSave().noSummon().sized(0.6F, 1.8F).eyeHeight(1.62F).vehicleAttachment(Player.DEFAULT_VEHICLE_ATTACHMENT).clientTrackingRange(32).updateInterval(2));
+     public static final EntityType<FishingHook> FISHING_BOBBER = EntityType.register("fishing_bobber", EntityType.Builder.of(FishingHook::new, MobCategory.MISC).noSave().noSummon().sized(0.25F, 0.25F).clientTrackingRange(4).updateInterval(5));
+-    private final EntityType.EntityFactory<T> factory;
++    public EntityType.EntityFactory<T> factory;
+     private final MobCategory category;
+     private final ImmutableSet<Block> immuneTo;
+     private final boolean serialize;
+diff --git a/src/main/java/org/bukkit/craftbukkit/entity/CraftEntityTypes.java b/src/main/java/org/bukkit/craftbukkit/entity/CraftEntityTypes.java
+index afc75ef3fb0fac40673fdfb684bd1f0d0edeb6ce..e32907552e1eb042e04eceb566686e5c4172581d 100644
+--- a/src/main/java/org/bukkit/craftbukkit/entity/CraftEntityTypes.java
++++ b/src/main/java/org/bukkit/craftbukkit/entity/CraftEntityTypes.java
+@@ -429,7 +429,7 @@ public final class CraftEntityTypes {
+         register(new EntityTypeData<>(EntityType.PLAYER, Player.class, CraftPlayer::new, null)); // Cannot spawn a player
+     }
+ 
+-    private static void register(EntityTypeData<?, ?> typeData) {
++    public static void register(EntityTypeData<?, ?> typeData) {
+         EntityTypeData<?, ?> other = CraftEntityTypes.CLASS_TYPE_DATA.put(typeData.entityClass(), typeData);
+         if (other != null) {
+             Bukkit.getLogger().warning(String.format("Found multiple entity type data for class %s, replacing '%s' with new value '%s'", typeData.entityClass().getName(), other, typeData));
